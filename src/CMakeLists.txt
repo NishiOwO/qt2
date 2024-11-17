@@ -71,7 +71,7 @@ target_link_libraries(Qt2
         ${X11_LIBRARIES}
         ${JPEG_LIBRARIES}
         $<$<BOOL:XFT_FOUND>:xft>
-        $<$<BOOL:MNG_FOUND>:MNG::MNG>
+        $<$<BOOL:MNG_FOUND>:mng>
         GLUT::GLUT
         OpenGL::GL
         PNG::PNG
