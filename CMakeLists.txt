@@ -37,7 +37,6 @@ include(GNUInstallDirs)
 include(Qt2Utils)
 include(Qt2InternalBuild)
 
-set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 option(ENABLE_XFT "Enable support for Anti-Aliased fonts." ON)
@@ -52,6 +51,12 @@ option(BUILD_EXAMPLES "Build examples." OFF)
 
 find_package(PkgConfig REQUIRED)
 
+if (CMAKE_SYSTEM_NAME MATCHES "NetBSD")
+    set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -I/usr/X11R7/include -I/usr/pkg/include")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -I/usr/X11R7/include -I/usr/pkg/include")
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -L/usr/X11R7/lib -L/usr/pkg/lib -R/usr/X11R7/lib -R/usr/pkg/lib")
+endif()
+	
 if(ENABLE_XFT)
     find_package(Xft REQUIRED)
     pkg_search_module(FONTCONFIG REQUIRED fontconfig)
