@@ -58,7 +58,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "NetBSD")
 endif()
 	
 if(ENABLE_XFT)
-    find_package(Xft REQUIRED)
+    pkg_search_module(XFT REQUIRED xft)
     pkg_search_module(FONTCONFIG REQUIRED fontconfig)
     find_package(Freetype REQUIRED)
 endif()
