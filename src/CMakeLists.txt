@@ -70,7 +70,7 @@ target_link_libraries(Qt2
 		${FONTCONFIG_LIBRARIES}
         ${X11_LIBRARIES}
         ${JPEG_LIBRARIES}
-        $<$<BOOL:XFT_FOUND>:xft>
+        $<$<BOOL:XFT_FOUND>:Xft>
         $<$<BOOL:MNG_FOUND>:mng>
         GLUT::GLUT
         OpenGL::GL
